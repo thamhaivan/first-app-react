@@ -6,22 +6,22 @@ import Header from './components/header';
 import Todoitem from './components/todoitem';
 
 class App extends Component {
-  constructor(){
-    super();
-    this.items=[
-      {title:'Di an',isComplete:true},
-      {title:'Di choi'},
-      {title:'Nghe nhac'},
-      {title:'Hoc React'}
-    ];
-  }
+  items = [
+    {title:'Di an',isComplete:true},
+    {title:'Di choi',isComplete:true},
+    {title:'Nghe nhac'},
+    {title:'Hoc React'}
+  ];
   render() {
     return (
-      <div className="app">
+      <div className="app container">
         <Header></Header>
-        {this.items.map((item,index) => <Todoitem key={index} item={item}></Todoitem>)  }
+        <div>
+          {this.items.length > 0 && this.items.map((item,index) => <Todoitem key={index} item={item}></Todoitem>) }
+          {this.items.length == 0 && 'Nothing'}
+        </div>
       </div>
-    );
+    );  
   }
 }
 
